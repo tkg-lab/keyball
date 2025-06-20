@@ -66,24 +66,24 @@ const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
 
 combo_t key_combos[] = {
-    [JK_LCLICK] = COMBO_ACTION(jk_combo),   // J+K
-    [KL_RCLICK] = COMBO_ACTION(kl_combo),   // K+L
+    [JK_LCLICK] = COMBO_ACTION(jk_combo),
+    [KL_RCLICK] = COMBO_ACTION(kl_combo),
 };
 
-// 押下／離上をハンドリング
-bool process_combo_event(uint16_t combo_index, bool pressed) {
+void process_combo_event(uint16_t combo_index, bool pressed) {
     switch (combo_index) {
         case JK_LCLICK:
-            if (pressed) { register_code(KC_BTN1); }
-            else         { unregister_code(KC_BTN1); }
+            if (pressed) { register_code(MS_BTN1); }
+            else         { unregister_code(MS_BTN1); }
             break;
+
         case KL_RCLICK:
-            if (pressed) { register_code(KC_BTN2); }
-            else         { unregister_code(KC_BTN2); }
+            if (pressed) { register_code(MS_BTN2); }
+            else         { unregister_code(MS_BTN2); }
             break;
     }
-    return false;   // 他へは流さない
 }
+
 
 #ifdef OLED_ENABLE
 
