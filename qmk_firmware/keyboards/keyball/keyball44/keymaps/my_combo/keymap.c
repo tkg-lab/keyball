@@ -73,13 +73,13 @@ combo_t key_combos[] = {
 void process_combo_event(uint16_t combo_index, bool pressed) {
     switch (combo_index) {
         case JK_LCLICK:
-            if (pressed) { register_code(MS_BTN1); }
-            else         { unregister_code(MS_BTN1); }
+            if (pressed) { register_code(KC_BTN1); }
+            else         { unregister_code(KC_BTN1); }
             break;
 
         case KL_RCLICK:
-            if (pressed) { register_code(MS_BTN2); }
-            else         { unregister_code(MS_BTN2); }
+            if (pressed) { register_code(KC_BTN2); }
+            else         { unregister_code(KC_BTN2); }
             break;
     }
 }
